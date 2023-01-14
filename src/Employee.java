@@ -5,7 +5,7 @@ public class Employee {
     private int department;
     private double salary;
 
-    public static int counter = 0;
+    public static int counter = 1;
     private int id;
 
     public Employee(String employer, int department, double salary) {
@@ -17,12 +17,11 @@ public class Employee {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Employee{");
-        sb.append("employer='").append(employer).append('\'');
-        sb.append(", department=").append(department);
-        sb.append(", salary=").append(salary);
-        sb.append(", id=").append(id);
-        sb.append('}');
+        final StringBuilder sb = new StringBuilder("Сотрудник: ");
+        sb.append(employer).append(' ');
+        sb.append(department);
+        sb.append(" ").append(salary);
+        sb.append(" id = ").append(id);
         return sb.toString();
     }
 

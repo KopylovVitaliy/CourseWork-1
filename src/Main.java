@@ -11,5 +11,9 @@ public class Main {
         employee[6] = new Employee("Казакова Алёна Алексеевна", 5, 29873);
         employee[7] = new Employee("Страхова Алиса Александровна", 4, 57890);
 
+        for (int i = 0; i < employee.length; i++) {
+            System.out.println(employee[i]);
+        }
+
     }
 }
