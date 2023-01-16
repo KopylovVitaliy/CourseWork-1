@@ -48,95 +48,19 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee1 = (Employee) o;
-        return department == employee1.department && Double.compare(employee1.salary, salary) == 0 && id == employee1.id && size == employee1.size && Objects.equals(employee, employee1.employee) && Arrays.equals(employees, employee1.employees);
+        return department == employee1.department && Double.compare(employee1.salary, salary) == 0 && id == employee1.id && Objects.equals(employee, employee1.employee);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(employee, department, salary, id, size);
-        result = 31 * result + Arrays.hashCode(employees);
-        return result;
-    }
-
-    private Employee[] employees;
-    private int size;
-    public Employee(){
-        this.employees = new Employee[10];
-    }
-    public void addEmployee(String employee, int department, double salary){
-        if (size >= employees.length) {
-            System.out.println("Нельзя добавить сотрудника, полный штат!");
-        }
-        Employee newEmployee = new Employee(employee, department, salary);
-        employees[size++] = newEmployee;
+        return Objects.hash(employee, department, salary, id);
     }
 
     @Override
     public String toString() {
-        return "Сотрудник: " + employee +
+        return  "Сотрудник: " + employee +
                 " | Отдел: " + department +
-                " | Зарплата: " + salary +
-                " | id сотрудника = " + id;
-    }
-
-    public void printAll(){
-        for (int i = 0; i < size; i++) {
-            Employee employee = employees[i];
-            System.out.println(employee);
-        }
-    }
-
-    public void allSalary(){
-        double all = 0;
-        for (int i = 0; i < size; i++) {
-            double salary = employees[i].getSalary();
-            all = all + employees[i].getSalary();
-        }
-        System.out.println("Выплата зарплаты всех сотруднико в месяц " + all);
-    }
-
-    public void minSalary() {
-        double min = 10000000;
-        for (int i = 0; i < size; i++) {
-            if (min > employees[i].getSalary()) {
-                min = employees[i].getSalary();
-            }
-        }
-        for (int i = 0; i < size; i++) {
-            if(min == employees[i].getSalary()){
-                System.out.println("Сотрудник с самой низкой зарплатой: " + employees[i].getEmployee());
-            }
-        }
-    }
-    public void maxSalary() {
-        double max = 0;
-        for (int i = 0; i < size; i++) {
-            if (max < employees[i].getSalary()) {
-                max = employees[i].getSalary();
-            }
-        }
-        for (int i = 0; i < size; i++) {
-            if(max == employees[i].getSalary()){
-                System.out.println("Сотрудник с самой высокой зарплатой: " + employees[i].getEmployee());
-            }
-        }
-
-    }
-
-    public void averageSalary() {
-        double all = 0;
-        for (int i = 0; i < size; i++) {
-            double salary = employees[i].getSalary();
-            all = all + employees[i].getSalary();
-        }
-        System.out.println("Средняя зарплата: " + all/size);
-    }
-
-    public void allEmployees() {
-        System.out.println("Ф.И.О. всех сотрудников: ");
-        for (int i = 0; i < size; i++) {
-            String employee = employees[i].getEmployee();
-            System.out.println(employee);
-        }
+                " | Заработная плата: " + salary +
+                " рублей | id сотрудника = " + id;
     }
 }
