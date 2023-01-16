@@ -14,7 +14,7 @@ public class EmployeeBook {
         if (size >= employees.length) {
             System.out.println("Нельзя добавить сотрудника, полный штат!");
         }
-        Employee newEmployee = new Employee(employee, department, salary);
+        Employee newEmployee = new Employee(employee.replace('_', ' '), department, salary);
         employees[size++] = newEmployee;
 
 
@@ -37,6 +37,7 @@ public class EmployeeBook {
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
             System.out.println(employee);
+
         }
     }
 
@@ -95,10 +96,70 @@ public class EmployeeBook {
         }
     }
 
-    public void employeesDeportment() {
-        System.out.println("депортаменты");
+    public void employeesSortDeportment() {
+        System.out.println("Сортировака по отделениям");
+        int dep = 1;
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getDepartment() == 1) {
+                System.out.println(employees[i]);
+            }
+        }
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getDepartment() == 2) {
+                System.out.println(employees[i]);
+            }
+        }
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getDepartment() == 3) {
+                System.out.println(employees[i]);
+            }
+        }
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getDepartment() == 4) {
+                System.out.println(employees[i]);
+            }
+        }
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getDepartment() == 5) {
+                System.out.println(employees[i]);
+            }
+        }
 
-        printAll();
+
+    }
+
+    public void changeEmployee(String employee, int deport, double salary) {
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getEmployee().equals(employee.replace('_', ' '))) {
+                employees[i].setDepartment(deport);
+                employees[i].setSalary(salary);
+            }
+        }
+    }
+
+    public void changeAllSalary(double l) {
+        double percent = l / 100;
+        for (int i = 0; i < size; i++) {
+            employees[i].setSalary(employees[i].getSalary() + (employees[i].getSalary() * percent));
+        }
+    }
+
+    public void salaryIsLess(double salary) {
+        System.out.println("Сотрудники, зарплата которых меньше: " + salary);
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getSalary() < salary) {
+                System.out.println(employees[i]);
+            }
+        }
+    }
+
+    public void salaryIsHigh(double salary) {
+        System.out.println("Сотрудники, зарплата которых выше: " + salary);
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getSalary() > salary) {
+                System.out.println(employees[i]);
+            }
+        }
     }
 
     @Override

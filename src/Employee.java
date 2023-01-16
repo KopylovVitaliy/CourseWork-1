@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Employee {
-    private String employee;
+    private final String employee;
     private int department;
     private double salary;
     public static int counter = 1;
@@ -58,7 +58,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return  "Сотрудник: " + employee +
+        return "Сотрудник: " + employee +
                 " | Отдел: " + department +
                 " | Заработная плата: " + salary +
                 " рублей | id сотрудника = " + id;
