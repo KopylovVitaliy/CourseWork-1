@@ -73,10 +73,10 @@ public class Employee {
 
     @Override
     public String toString() {
-        return  employee + " " +
-                " " + department +
-                " " + salary +
-                " id = " + id;
+        return "Сотрудник: " + employee +
+                " | Отдел: " + department +
+                " | Зарплата: " + salary +
+                " | id сотрудника = " + id;
     }
 
     public void printAll(){
@@ -92,7 +92,7 @@ public class Employee {
             double salary = employees[i].getSalary();
             all = all + employees[i].getSalary();
         }
-        System.out.println(all);
+        System.out.println("Выплата зарплаты всех сотруднико в месяц " + all);
     }
 
     public void minSalary() {
@@ -102,7 +102,11 @@ public class Employee {
                 min = employees[i].getSalary();
             }
         }
-        System.out.println(min);
+        for (int i = 0; i < size; i++) {
+            if(min == employees[i].getSalary()){
+                System.out.println("Сотрудник с самой низкой зарплатой: " + employees[i].getEmployee());
+            }
+        }
     }
     public void maxSalary() {
         double max = 0;
@@ -111,7 +115,12 @@ public class Employee {
                 max = employees[i].getSalary();
             }
         }
-        System.out.println(max);
+        for (int i = 0; i < size; i++) {
+            if(max == employees[i].getSalary()){
+                System.out.println("Сотрудник с самой высокой зарплатой: " + employees[i].getEmployee());
+            }
+        }
+
     }
 
     public void averageSalary() {
@@ -120,10 +129,11 @@ public class Employee {
             double salary = employees[i].getSalary();
             all = all + employees[i].getSalary();
         }
-        System.out.println(all/size);
+        System.out.println("Средняя зарплата: " + all/size);
     }
 
     public void allEmployees() {
+        System.out.println("Ф.И.О. всех сотрудников: ");
         for (int i = 0; i < size; i++) {
             String employee = employees[i].getEmployee();
             System.out.println(employee);
