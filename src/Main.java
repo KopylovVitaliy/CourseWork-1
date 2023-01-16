@@ -17,7 +17,7 @@ public class Main {
 
         while (true) {
             System.out.println("Что вы хотите сделать?");
-            System.out.println("1 - Напечатать список всех сотрудников");
+            System.out.println("1 - Показать список всех сотрудников");
             System.out.println("2 - Показать общую зарплату всех сотрудников");
             System.out.println("3 - Показать сотрудника с минимальной зарплатой");
             System.out.println("4 - Показать сотрудника с самой высокой зарплатой");
